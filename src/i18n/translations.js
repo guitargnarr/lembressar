@@ -1,5 +1,5 @@
-const BRAND = 'l\u2019EmbrAssEr'
-const BRAND_UPPER = 'L\u2019EmbrAssEr'
+const BRAND = 'l\u2019Embrasser'
+const BRAND_UPPER = 'L\u2019Embrasser'
 
 export const translations = {
   fr: {
