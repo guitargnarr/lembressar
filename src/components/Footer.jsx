@@ -1,33 +1,37 @@
+import { useLang } from '../i18n/LanguageContext'
+
 export default function Footer() {
+  const { t } = useLang()
+
+  const NAV_LINKS = [
+    { href: '#about', label: t.nav.about },
+    { href: '#gallery', label: t.nav.gallery },
+    { href: '#shop', label: t.nav.shop },
+    { href: '#visit', label: t.nav.visit },
+    { href: '#contact', label: t.nav.contact },
+  ]
+
   return (
     <footer className="bg-navy-900 py-16">
       <div className="max-w-6xl mx-auto px-6">
         <div className="grid md:grid-cols-3 gap-12 mb-12">
-          {/* Brand */}
           <div>
             <h3 className="font-serif text-2xl text-cream-100 tracking-widest-plus mb-4">
-              l{'\u2019'}EmbrAssEr
+              {t.brand}
             </h3>
             <p className="text-navy-300 text-sm leading-relaxed">
-              Galerie d'art et d'artisanat.<br />
-              Aide a la creation artistique.<br />
-              Depuis 2017.
+              {t.footer.desc1}<br />
+              {t.footer.desc2}<br />
+              {t.footer.desc3}
             </p>
           </div>
 
-          {/* Links */}
           <div>
             <h4 className="font-sans text-xs tracking-widest-plus uppercase text-cream-300 mb-4">
-              Navigation
+              {t.footer.navigation}
             </h4>
             <nav className="flex flex-col gap-2">
-              {[
-                { href: '#about', label: 'Notre Vision' },
-                { href: '#gallery', label: 'Galerie' },
-                { href: '#shop', label: 'Boutique' },
-                { href: '#visit', label: 'Nous Trouver' },
-                { href: '#contact', label: 'Contact' },
-              ].map((link) => (
+              {NAV_LINKS.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
@@ -39,13 +43,11 @@ export default function Footer() {
             </nav>
           </div>
 
-          {/* Social & Contact */}
           <div>
             <h4 className="font-sans text-xs tracking-widest-plus uppercase text-cream-300 mb-4">
-              Suivez-Nous
+              {t.footer.followUs}
             </h4>
             <div className="flex gap-4 mb-6">
-              {/* Facebook */}
               <a
                 href="https://facebook.com"
                 target="_blank"
@@ -57,7 +59,6 @@ export default function Footer() {
                   <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
                 </svg>
               </a>
-              {/* Instagram */}
               <a
                 href="https://instagram.com"
                 target="_blank"
@@ -71,7 +72,7 @@ export default function Footer() {
               </a>
             </div>
             <p className="text-navy-400 text-sm">
-              57 Chemin de la Metairie Haute<br />
+              57 Chemin de la M{'\u00e9'}tairie Haute<br />
               81580 Cambounet-sur-le-Sor<br />
               France
             </p>
@@ -80,7 +81,7 @@ export default function Footer() {
 
         <div className="border-t border-navy-700 pt-8 text-center">
           <p className="text-navy-500 text-xs tracking-widest-plus">
-            &copy; {new Date().getFullYear()} L{'\u2019'}EmbrAssEr. Tous droits reserves.
+            &copy; {new Date().getFullYear()} {t.brandUpper}. {t.footer.rights}
           </p>
         </div>
       </div>

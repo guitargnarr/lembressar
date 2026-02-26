@@ -1,16 +1,18 @@
 import { useState, useEffect } from 'react'
-
-const NAV_LINKS = [
-  { href: '#about', label: 'Notre Vision' },
-  { href: '#gallery', label: 'Galerie' },
-  { href: '#shop', label: 'Boutique' },
-  { href: '#visit', label: 'Nous Trouver' },
-  { href: '#contact', label: 'Contact' },
-]
+import { useLang } from '../i18n/LanguageContext'
 
 export default function Header() {
+  const { lang, t, toggle } = useLang()
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
+
+  const NAV_LINKS = [
+    { href: '#about', label: t.nav.about },
+    { href: '#gallery', label: t.nav.gallery },
+    { href: '#shop', label: t.nav.shop },
+    { href: '#visit', label: t.nav.visit },
+    { href: '#contact', label: t.nav.contact },
+  ]
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60)
@@ -33,43 +35,67 @@ export default function Header() {
               scrolled ? 'text-navy-700' : 'text-white'
             }`}
           >
-            l{'\u2019'}EmbrAssEr
+            {t.brand}
           </span>
         </a>
 
-        {/* Desktop nav */}
-        <nav className="hidden md:flex items-center gap-8">
-          {NAV_LINKS.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className={`font-sans text-xs tracking-widest-plus uppercase transition-colors duration-300 ${
-                scrolled
-                  ? 'text-navy-600 hover:text-navy-800'
-                  : 'text-white/80 hover:text-white'
-              }`}
-            >
-              {link.label}
-            </a>
-          ))}
-        </nav>
+        {/* Desktop nav + lang toggle */}
+        <div className="hidden md:flex items-center gap-8">
+          <nav className="flex items-center gap-8">
+            {NAV_LINKS.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className={`font-sans text-xs tracking-widest-plus uppercase transition-colors duration-300 ${
+                  scrolled
+                    ? 'text-navy-600 hover:text-navy-800'
+                    : 'text-white/80 hover:text-white'
+                }`}
+              >
+                {link.label}
+              </a>
+            ))}
+          </nav>
+          <button
+            onClick={toggle}
+            className={`font-sans text-xs tracking-widest-plus uppercase border rounded px-3 py-1 transition-all duration-300 cursor-pointer ${
+              scrolled
+                ? 'border-navy-300 text-navy-600 hover:bg-navy-700 hover:text-cream-50'
+                : 'border-white/40 text-white/80 hover:bg-white/10'
+            }`}
+          >
+            {lang === 'fr' ? 'EN' : 'FR'}
+          </button>
+        </div>
 
-        {/* Mobile menu button */}
-        <button
-          onClick={() => setMenuOpen(!menuOpen)}
-          className={`md:hidden p-2 transition-colors ${
-            scrolled ? 'text-navy-700' : 'text-white'
-          }`}
-          aria-label="Menu"
-        >
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-            {menuOpen ? (
-              <path d="M6 6l12 12M6 18L18 6" />
-            ) : (
-              <path d="M4 7h16M4 12h16M4 17h16" />
-            )}
-          </svg>
-        </button>
+        {/* Mobile: lang toggle + menu button */}
+        <div className="md:hidden flex items-center gap-3">
+          <button
+            onClick={toggle}
+            className={`font-sans text-xs tracking-widest-plus uppercase border rounded px-2 py-1 transition-colors cursor-pointer ${
+              scrolled
+                ? 'border-navy-300 text-navy-600'
+                : 'border-white/40 text-white/80'
+            }`}
+          >
+            {lang === 'fr' ? 'EN' : 'FR'}
+          </button>
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            className={`p-2 transition-colors ${
+              scrolled ? 'text-navy-700' : 'text-white'
+            }`}
+            aria-label="Menu"
+          >
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+              {menuOpen ? (
+                <path d="M6 6l12 12M6 18L18 6" />
+              ) : (
+                <path d="M4 7h16M4 12h16M4 17h16" />
+              )}
+            </svg>
+          </button>
+        </div>
       </div>
 
       {/* Mobile menu */}

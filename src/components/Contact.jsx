@@ -1,6 +1,8 @@
 import { useState } from 'react'
+import { useLang } from '../i18n/LanguageContext'
 
 export default function Contact() {
+  const { t } = useLang()
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -11,11 +13,10 @@ export default function Contact() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    // Open mailto as simple fallback
     const mailtoLink = `mailto:contact@lembressar.com?subject=${encodeURIComponent(
-      formData.subject || 'Message depuis le site'
+      formData.subject || t.contact.mailtoSubject
     )}&body=${encodeURIComponent(
-      `Nom: ${formData.name}\nEmail: ${formData.email}\n\n${formData.message}`
+      `${t.contact.name}: ${formData.name}\nEmail: ${formData.email}\n\n${formData.message}`
     )}`
     window.location.href = mailtoLink
     setSubmitted(true)
@@ -30,27 +31,25 @@ export default function Contact() {
       <div className="max-w-3xl mx-auto px-6">
         <div className="text-center mb-16 fade-in">
           <p className="font-sans text-xs tracking-widest-plus uppercase text-navy-400 mb-4">
-            Ecrivez-Nous
+            {t.contact.eyebrow}
           </p>
           <h2 className="font-serif text-3xl md:text-5xl text-navy-800 font-light mb-4">
-            Contact
+            {t.contact.heading}
           </h2>
           <div className="section-divider" />
         </div>
 
         {submitted ? (
           <div className="fade-in visible text-center py-12">
-            <h3 className="font-serif text-2xl text-navy-700 mb-4">Merci!</h3>
-            <p className="text-navy-500">
-              Votre message a ete prepare. Veuillez l'envoyer depuis votre client mail.
-            </p>
+            <h3 className="font-serif text-2xl text-navy-700 mb-4">{t.contact.thankYou}</h3>
+            <p className="text-navy-500">{t.contact.thankYouMsg}</p>
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="fade-in space-y-6">
             <div className="grid sm:grid-cols-2 gap-6">
               <div>
                 <label className="block font-sans text-xs tracking-widest-plus uppercase text-navy-400 mb-2">
-                  Nom
+                  {t.contact.name}
                 </label>
                 <input
                   type="text"
@@ -60,12 +59,12 @@ export default function Contact() {
                   onChange={handleChange}
                   className="w-full bg-transparent border-b border-navy-200 py-3 text-navy-700
                              focus:border-navy-600 focus:outline-none transition-colors font-serif text-lg"
-                  placeholder="Votre nom"
+                  placeholder={t.contact.namePlaceholder}
                 />
               </div>
               <div>
                 <label className="block font-sans text-xs tracking-widest-plus uppercase text-navy-400 mb-2">
-                  Email
+                  {t.contact.email}
                 </label>
                 <input
                   type="email"
@@ -75,14 +74,14 @@ export default function Contact() {
                   onChange={handleChange}
                   className="w-full bg-transparent border-b border-navy-200 py-3 text-navy-700
                              focus:border-navy-600 focus:outline-none transition-colors font-serif text-lg"
-                  placeholder="votre@email.com"
+                  placeholder={t.contact.emailPlaceholder}
                 />
               </div>
             </div>
 
             <div>
               <label className="block font-sans text-xs tracking-widest-plus uppercase text-navy-400 mb-2">
-                Sujet
+                {t.contact.subject}
               </label>
               <input
                 type="text"
@@ -91,13 +90,13 @@ export default function Contact() {
                 onChange={handleChange}
                 className="w-full bg-transparent border-b border-navy-200 py-3 text-navy-700
                            focus:border-navy-600 focus:outline-none transition-colors font-serif text-lg"
-                placeholder="A propos de..."
+                placeholder={t.contact.subjectPlaceholder}
               />
             </div>
 
             <div>
               <label className="block font-sans text-xs tracking-widest-plus uppercase text-navy-400 mb-2">
-                Message
+                {t.contact.message}
               </label>
               <textarea
                 name="message"
@@ -107,13 +106,13 @@ export default function Contact() {
                 onChange={handleChange}
                 className="w-full bg-transparent border-b border-navy-200 py-3 text-navy-700
                            focus:border-navy-600 focus:outline-none transition-colors font-serif text-lg resize-none"
-                placeholder="Votre message..."
+                placeholder={t.contact.messagePlaceholder}
               />
             </div>
 
             <div className="text-center pt-4">
               <button type="submit" className="btn-primary cursor-pointer">
-                Envoyer
+                {t.contact.send}
               </button>
             </div>
           </form>

@@ -1,3 +1,5 @@
+import { useLang } from '../i18n/LanguageContext'
+
 const GALLERY_ITEMS = [
   {
     src: 'https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?w=600&q=80',
@@ -32,15 +34,17 @@ const GALLERY_ITEMS = [
 ]
 
 export default function Gallery() {
+  const { t } = useLang()
+
   return (
     <section id="gallery" className="py-24 md:py-32 bg-navy-800">
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-16 fade-in">
           <p className="font-sans text-xs tracking-widest-plus uppercase text-navy-300 mb-4">
-            Nos Oeuvres
+            {t.gallery.eyebrow}
           </p>
           <h2 className="font-serif text-3xl md:text-5xl text-cream-100 font-light mb-4">
-            Galerie
+            {t.gallery.heading}
           </h2>
           <div className="w-16 h-px bg-gold-400 mx-auto" />
         </div>
@@ -70,7 +74,7 @@ export default function Gallery() {
 
         <div className="text-center mt-12 fade-in">
           <a href="#contact" className="btn-outline border-cream-300 text-cream-300 hover:bg-cream-300 hover:text-navy-800">
-            Voir plus
+            {t.gallery.seeMore}
           </a>
         </div>
       </div>
