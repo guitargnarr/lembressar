@@ -14,7 +14,7 @@ export default function About() {
             <div className="section-divider !mx-0 mb-8" />
             <div className="space-y-5 text-navy-600 leading-relaxed">
               <p>
-                L'Embressar est une galerie ou chaque oeuvre raconte une histoire. Nous
+                L{'\u2019'}EmbrAssEr est une galerie ou chaque oeuvre raconte une histoire. Nous
                 selectionnons des artistes et des artisans dont le travail reflète une
                 authenticite profonde et un savoir-faire exceptionnel.
               </p>
@@ -25,7 +25,7 @@ export default function About() {
                 la reproduction de leurs oeuvres.
               </p>
               <p>
-                Fondee en 2017, L'Embressar collabore activement avec des galeries au Japon
+                Fondee en 2017, L{'\u2019'}EmbrAssEr collabore activement avec des galeries au Japon
                 et en Europe, ouvrant des ponts entre les cultures et les sensibilites
                 artistiques.
               </p>

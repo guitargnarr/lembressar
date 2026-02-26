@@ -33,7 +33,7 @@ export default function Header() {
               scrolled ? 'text-navy-700' : 'text-white'
             }`}
           >
-            l'embressar
+            l{'\u2019'}EmbrAssEr
           </span>
         </a>
 

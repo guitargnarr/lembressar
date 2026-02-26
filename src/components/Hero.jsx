@@ -17,7 +17,7 @@ export default function Hero() {
           Galerie d'Art et d'Artisanat
         </p>
         <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl text-white font-light leading-tight mb-6">
-          l'embressar
+          l{'\u2019'}EmbrAssEr
         </h1>
         <div className="w-16 h-px bg-gold-400 mx-auto mb-6" />
         <p className="font-serif text-lg md:text-xl text-cream-200 italic leading-relaxed mb-10 max-w-xl mx-auto">

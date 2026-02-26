@@ -6,7 +6,7 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <h3 className="font-serif text-2xl text-cream-100 tracking-widest-plus mb-4">
-              l'embressar
+              l{'\u2019'}EmbrAssEr
             </h3>
             <p className="text-navy-300 text-sm leading-relaxed">
               Galerie d'art et d'artisanat.<br />
@@ -80,7 +80,7 @@ export default function Footer() {
 
         <div className="border-t border-navy-700 pt-8 text-center">
           <p className="text-navy-500 text-xs tracking-widest-plus">
-            &copy; {new Date().getFullYear()} L'Embressar. Tous droits reserves.
+            &copy; {new Date().getFullYear()} L{'\u2019'}EmbrAssEr. Tous droits reserves.
           </p>
         </div>
       </div>

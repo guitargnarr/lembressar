@@ -7,7 +7,7 @@ export default function Visit() {
           <div className="fade-in order-2 md:order-1">
             <div className="bg-navy-100 rounded-sm overflow-hidden" style={{ height: '400px' }}>
               <iframe
-                title="L'Embressar location"
+                title={`L\u2019EmbrAssEr location`}
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2867.6!2d2.1!3d43.55!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2s57+Chem.+de+la+M%C3%A9tairie+Haute%2C+81580+Cambounet-sur-le-Sor%2C+France!5e0!3m2!1sfr!2sfr!4v1"
                 width="100%"
                 height="100%"
