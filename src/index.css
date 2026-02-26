@@ -48,3 +48,101 @@
 .img-zoom:hover img {
   transform: scale(1.05);
 }
+
+/* Hero Ken Burns - slow cinematic pan & zoom */
+@keyframes kenBurns {
+  0% {
+    transform: scale(1.0) translate(0, 0);
+  }
+  50% {
+    transform: scale(1.15) translate(-1.5%, -1%);
+  }
+  100% {
+    transform: scale(1.05) translate(0.5%, 0.5%);
+  }
+}
+.hero-ken-burns {
+  animation: kenBurns 25s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+/* Floating gold particles */
+@keyframes particleFloat {
+  0%, 100% {
+    opacity: 0;
+    transform: translateY(100vh) scale(0);
+  }
+  10% {
+    opacity: 1;
+    transform: translateY(80vh) scale(1);
+  }
+  90% {
+    opacity: 0.6;
+    transform: translateY(-10vh) scale(0.5);
+  }
+}
+.hero-particle {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: radial-gradient(circle, rgba(201, 169, 110, 0.8), transparent);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.hero-particle-1 {
+  left: 15%;
+  animation: particleFloat 12s ease-in-out infinite;
+  animation-delay: 0s;
+}
+.hero-particle-2 {
+  left: 35%;
+  animation: particleFloat 15s ease-in-out infinite;
+  animation-delay: 3s;
+}
+.hero-particle-3 {
+  left: 55%;
+  animation: particleFloat 11s ease-in-out infinite;
+  animation-delay: 6s;
+}
+.hero-particle-4 {
+  left: 75%;
+  animation: particleFloat 14s ease-in-out infinite;
+  animation-delay: 2s;
+}
+.hero-particle-5 {
+  left: 25%;
+  width: 2px;
+  height: 2px;
+  animation: particleFloat 16s ease-in-out infinite;
+  animation-delay: 8s;
+}
+.hero-particle-6 {
+  left: 65%;
+  width: 2px;
+  height: 2px;
+  animation: particleFloat 13s ease-in-out infinite;
+  animation-delay: 5s;
+}
+
+/* Film grain overlay */
+.hero-grain {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px;
+}
+
+/* Scroll indicator pulse */
+@keyframes scrollPulse {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scaleY(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scaleY(1.2);
+  }
+}
+.hero-scroll-pulse {
+  animation: scrollPulse 2s ease-in-out infinite;
+  transform-origin: top;
+}
