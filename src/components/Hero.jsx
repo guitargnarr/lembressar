@@ -1,32 +1,30 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useLang } from '../i18n/LanguageContext'
 
 export default function Hero() {
   const { t } = useLang()
   const [loaded, setLoaded] = useState(false)
-  const imgRef = useRef(null)
 
   useEffect(() => {
-    const img = new Image()
-    img.src = 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=1920&q=80'
-    img.onload = () => setLoaded(true)
-    if (img.complete) setLoaded(true)
+    const timer = setTimeout(() => setLoaded(true), 300)
+    return () => clearTimeout(timer)
   }, [])
 
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
-      {/* Animated background with Ken Burns effect */}
+      {/* Video background */}
       <div className="absolute inset-0">
-        <div
-          ref={imgRef}
-          className={`w-full h-full transition-opacity duration-1000 ${loaded ? 'opacity-100' : 'opacity-0'}`}
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          poster="https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=1920&q=80"
+          className={`w-full h-full object-cover transition-opacity duration-1000 ${loaded ? 'opacity-100' : 'opacity-0'}`}
+          onCanPlay={() => setLoaded(true)}
         >
-          <img
-            src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=1920&q=80"
-            alt="Art gallery interior"
-            className="w-full h-full object-cover hero-ken-burns"
-          />
-        </div>
+          <source src="/images/hero-video.mp4" type="video/mp4" />
+        </video>
         {/* Multi-layer overlay for depth */}
         <div className="absolute inset-0 bg-gradient-to-b from-navy-900/70 via-navy-900/40 to-navy-900/80" />
         <div className="absolute inset-0 bg-gradient-to-r from-navy-900/30 via-transparent to-navy-900/30" />
@@ -85,7 +83,7 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Scroll indicator with entrance */}
+      {/* Scroll indicator */}
       <div
         className={`absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2
                     transition-all duration-1000 delay-[1400ms] ease-out

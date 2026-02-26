@@ -1,5 +1,4 @@
 import { useEffect } from 'react'
-import { LanguageProvider } from './i18n/LanguageContext'
 import Header from './components/Header'
 import Hero from './components/Hero'
 import About from './components/About'
@@ -27,18 +26,16 @@ function App() {
   }, [])
 
   return (
-    <LanguageProvider>
-      <div className="min-h-screen">
-        <Header />
-        <Hero />
-        <About />
-        <Gallery />
-        <Shop />
-        <Visit />
-        <Contact />
-        <Footer />
-      </div>
-    </LanguageProvider>
+    <div className="min-h-screen">
+      <Header />
+      <Hero />
+      <About />
+      <Gallery />
+      <Shop />
+      <Visit />
+      <Contact />
+      <Footer />
+    </div>
   )
 }
 

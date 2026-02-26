@@ -1,7 +1,10 @@
+import { useLocation } from 'react-router-dom'
 import { useLang } from '../i18n/LanguageContext'
 
 export default function Footer() {
   const { t } = useLang()
+  const location = useLocation()
+  const isHome = location.pathname === '/'
 
   const NAV_LINKS = [
     { href: '#about', label: t.nav.about },
@@ -34,7 +37,7 @@ export default function Footer() {
               {NAV_LINKS.map((link) => (
                 <a
                   key={link.href}
-                  href={link.href}
+                  href={isHome ? link.href : `/${link.href}`}
                   className="text-navy-400 hover:text-cream-200 text-sm transition-colors"
                 >
                   {link.label}
