@@ -11,38 +11,32 @@ export default function Hero() {
   }, [])
 
   return (
-    <section className="relative h-screen flex items-center justify-center overflow-hidden">
-      {/* Background image — no overlay per Pip */}
+    <section className="relative h-screen flex items-center justify-center overflow-hidden bg-white">
+      {/* Video background — no overlay per Pip */}
       <div className="absolute inset-0">
-        <img
-          src="/images/embrace.jpg"
-          alt=""
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
           className={`w-full h-full object-cover transition-opacity duration-1000 ${loaded ? 'opacity-100' : 'opacity-0'}`}
-          onLoad={() => setLoaded(true)}
-        />
+          onCanPlay={() => setLoaded(true)}
+        >
+          <source src="/images/hero-video.mp4" type="video/mp4" />
+        </video>
       </div>
 
-      {/* Floating particles */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="hero-particle hero-particle-1" />
-        <div className="hero-particle hero-particle-2" />
-        <div className="hero-particle hero-particle-3" />
-        <div className="hero-particle hero-particle-4" />
-        <div className="hero-particle hero-particle-5" />
-        <div className="hero-particle hero-particle-6" />
-      </div>
-
-      {/* Content with staggered reveal */}
+      {/* Content with staggered reveal — dark text for white bg */}
       <div className="relative z-10 text-center px-6 max-w-3xl">
         <p
-          className={`font-sans text-xs tracking-widest-plus uppercase text-cream-200/80 mb-6
+          className={`font-sans text-xs tracking-widest-plus uppercase text-navy-500 mb-6
                       transition-all duration-1000 delay-300 ease-out
                       ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
         >
           {t.hero.eyebrow}
         </p>
         <h1
-          className={`font-serif text-5xl md:text-7xl lg:text-8xl text-white font-light leading-tight mb-6
+          className={`font-serif text-5xl md:text-7xl lg:text-8xl text-navy-800 font-light leading-tight mb-6
                       transition-all duration-1200 delay-500 ease-out
                       ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
         >
@@ -53,7 +47,7 @@ export default function Hero() {
                       ${loaded ? 'w-16 opacity-100' : 'w-0 opacity-0'}`}
         />
         <p
-          className={`font-serif text-lg md:text-xl text-cream-200 italic leading-relaxed mb-10 max-w-xl mx-auto
+          className={`font-serif text-lg md:text-xl text-navy-500 italic leading-relaxed mb-10 max-w-xl mx-auto
                       transition-all duration-1000 delay-900 ease-out
                       ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
         >
@@ -67,7 +61,7 @@ export default function Hero() {
           <a href="#shop" className="btn-primary">
             {t.hero.cta1}
           </a>
-          <a href="#shop" className="btn-outline border-cream-200 text-cream-200 hover:bg-cream-200 hover:text-navy-800">
+          <a href="#shop" className="btn-outline">
             {t.hero.cta2}
           </a>
         </div>
@@ -79,10 +73,10 @@ export default function Hero() {
                     transition-all duration-1000 delay-[1400ms] ease-out
                     ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
       >
-        <span className="font-sans text-[10px] tracking-widest-plus uppercase text-cream-300">
+        <span className="font-sans text-[10px] tracking-widest-plus uppercase text-navy-400">
           {t.hero.scroll}
         </span>
-        <div className="w-px h-8 bg-cream-300/50 hero-scroll-pulse" />
+        <div className="w-px h-8 bg-navy-300/50 hero-scroll-pulse" />
       </div>
     </section>
   )
