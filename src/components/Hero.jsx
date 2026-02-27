@@ -54,12 +54,12 @@ export default function Hero() {
           {t.hero.eyebrow}
         </p>
         <h1
-          className={`font-serif text-5xl md:text-7xl lg:text-8xl text-white font-light leading-tight mb-6
+          className={`font-serif text-5xl md:text-7xl lg:text-8xl font-light leading-tight mb-6
                       transition-all duration-[2500ms] ease-out
                       ${inkFilled ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
           style={{
             WebkitTextStroke: '0.5px rgba(30, 37, 80, 0.25)',
-            textShadow: '0 2px 20px rgba(0,0,0,0.25), 0 0 40px rgba(0,0,0,0.1)',
+            color: CREAM,
           }}
         >
           {t.brand}
@@ -67,13 +67,13 @@ export default function Hero() {
         <div
           className={`h-px mx-auto mb-6 transition-all duration-[2000ms] delay-300 ease-out
                       ${inkFilled ? 'w-16 opacity-100' : 'w-0 opacity-0'}`}
-          style={{ backgroundColor: CREAM + '99' }}
+          style={{ backgroundColor: CREAM }}
         />
         <p
           className={`font-serif text-lg md:text-xl italic leading-relaxed mb-10 max-w-xl mx-auto
                       transition-all duration-[2000ms] delay-500 ease-out
                       ${inkFilled ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
-          style={{ color: CREAM + 'cc' }}
+          style={{ color: CREAM }}
         >
           {t.hero.tagline}
         </p>
@@ -92,7 +92,7 @@ export default function Hero() {
           <a
             href="#shop"
             className="inline-block px-8 py-3 font-sans text-sm tracking-widest-plus uppercase hover:bg-white/10 transition-all duration-300"
-            style={{ border: `1px solid ${CREAM}99`, color: CREAM }}
+            style={{ border: `1px solid ${CREAM}`, color: CREAM }}
           >
             {t.hero.cta2}
           </a>
@@ -107,11 +107,11 @@ export default function Hero() {
       >
         <span
           className="font-sans text-[10px] tracking-widest-plus uppercase"
-          style={{ color: CREAM + '99' }}
+          style={{ color: CREAM }}
         >
           {t.hero.scroll}
         </span>
-        <div className="w-px h-8 hero-scroll-pulse" style={{ backgroundColor: CREAM + '50' }} />
+        <div className="w-px h-8 hero-scroll-pulse" style={{ backgroundColor: CREAM }} />
       </div>
     </section>
   )
