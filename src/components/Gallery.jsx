@@ -31,6 +31,11 @@ const GALLERY_ITEMS = [
     alt: 'Mixed media artwork',
     span: '',
   },
+  {
+    src: 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=600&q=80',
+    alt: 'Artist brushes',
+    span: 'md:col-span-2',
+  },
 ]
 
 export default function Gallery() {

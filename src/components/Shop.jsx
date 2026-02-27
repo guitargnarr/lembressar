@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { useLang } from '../i18n/LanguageContext'
 
 const SHOP_IMAGES = [
-  'https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=500&q=80',
+  '/images/embrace.jpg',
   'https://images.unsplash.com/photo-1565193566173-7a0ee3dbe261?w=500&q=80',
   'https://images.unsplash.com/photo-1493106641515-6b5631de4bb9?w=500&q=80',
   'https://images.unsplash.com/photo-1490312278390-ab64016e0aa9?w=500&q=80',

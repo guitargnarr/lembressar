@@ -19,7 +19,7 @@ export default function Hero() {
           muted
           loop
           playsInline
-          poster="https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=1920&q=80"
+          poster="/images/embrace.jpg"
           className={`w-full h-full object-cover transition-opacity duration-1000 ${loaded ? 'opacity-100' : 'opacity-0'}`}
           onCanPlay={() => setLoaded(true)}
         >
