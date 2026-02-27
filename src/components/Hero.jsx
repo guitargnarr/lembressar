@@ -74,7 +74,7 @@ export default function Hero() {
                       transition-all duration-1000 delay-[1100ms] ease-out
                       ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
         >
-          <a href="#gallery" className="btn-primary">
+          <a href="#shop" className="btn-primary">
             {t.hero.cta1}
           </a>
           <a href="#shop" className="btn-outline border-cream-200 text-cream-200 hover:bg-cream-200 hover:text-navy-800">

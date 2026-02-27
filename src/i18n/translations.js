@@ -7,7 +7,6 @@ export const translations = {
     brandUpper: BRAND_UPPER,
     nav: {
       about: 'Notre Vision',
-      gallery: 'Galerie',
       shop: 'Boutique',
       visit: 'Nous Trouver',
       contact: 'Contact',
@@ -32,13 +31,8 @@ export const translations = {
       value3Title: 'Ouverture Internationale',
       value3Desc: 'Collaboration active avec des galeries au Japon et en Europe, tissant des liens entre les cultures.',
     },
-    gallery: {
-      eyebrow: 'Nos \u0152uvres',
-      heading: 'Galerie',
-      seeMore: 'Voir plus',
-    },
     shop: {
-      eyebrow: '\u00c0 D\u00e9couvrir',
+      eyebrow: 'Nos \u0152uvres',
       heading: 'Boutique',
       item1Title: 'Peintures Originales',
       item1Desc: '\u0152uvres uniques d\u2019artistes contemporains',
@@ -93,7 +87,6 @@ export const translations = {
     brandUpper: BRAND_UPPER,
     nav: {
       about: 'Our Vision',
-      gallery: 'Gallery',
       shop: 'Shop',
       visit: 'Find Us',
       contact: 'Contact',
@@ -118,13 +111,8 @@ export const translations = {
       value3Title: 'International Openness',
       value3Desc: 'Active collaboration with galleries in Japan and Europe, weaving connections between cultures.',
     },
-    gallery: {
-      eyebrow: 'Our Works',
-      heading: 'Gallery',
-      seeMore: 'See more',
-    },
     shop: {
-      eyebrow: 'To Discover',
+      eyebrow: 'Our Works',
       heading: 'Shop',
       item1Title: 'Original Paintings',
       item1Desc: 'Unique works by contemporary artists',
