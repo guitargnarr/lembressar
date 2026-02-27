@@ -10,27 +10,15 @@ export default function Hero() {
   const [loaded, setLoaded] = useState(false)
   const [inkFilled, setInkFilled] = useState(false)
 
-  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768
-
   useEffect(() => {
     const timer = setTimeout(() => setLoaded(true), 300)
     return () => clearTimeout(timer)
   }, [])
 
-  // On mobile, skip ahead in the video so ink covers center faster
-  useEffect(() => {
-    if (!loaded || !videoRef.current) return
-    if (isMobile) {
-      videoRef.current.currentTime = 5
-    }
-  }, [loaded])
-
-  // Reveal text once ink has filled the center
-  // Mobile: shorter wait since we skipped ahead
+  // Reveal text once ink has filled the center (~7s)
   useEffect(() => {
     if (!loaded) return
-    const delay = isMobile ? 3000 : 6500
-    const timer = setTimeout(() => setInkFilled(true), delay)
+    const timer = setTimeout(() => setInkFilled(true), 6500)
     return () => clearTimeout(timer)
   }, [loaded])
 
@@ -55,7 +43,7 @@ export default function Hero() {
         </video>
       </div>
 
-      {/* Text — white headline, deep cream secondary — invisible until ink fills */}
+      {/* Text — headline with paint-stroke outline, cream secondary */}
       <div className="relative z-10 text-center px-6 max-w-3xl">
         <p
           className={`font-sans text-xs tracking-widest-plus uppercase mb-6
@@ -69,7 +57,10 @@ export default function Hero() {
           className={`font-serif text-5xl md:text-7xl lg:text-8xl text-white font-light leading-tight mb-6
                       transition-all duration-[2500ms] ease-out
                       ${inkFilled ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
-          style={{ textShadow: '0 2px 20px rgba(0,0,0,0.3)' }}
+          style={{
+            WebkitTextStroke: '0.5px rgba(30, 37, 80, 0.25)',
+            textShadow: '0 2px 20px rgba(0,0,0,0.25), 0 0 40px rgba(0,0,0,0.1)',
+          }}
         >
           {t.brand}
         </h1>
