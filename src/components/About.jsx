@@ -30,8 +30,8 @@ export default function About() {
 
           <div className="fade-in img-zoom rounded-sm overflow-hidden">
             <img
-              src="https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=800&q=80"
-              alt="Artist at work in studio"
+              src="/images/embrace.jpg"
+              alt="L\u2019Embrasser"
               className="w-full h-[500px] object-cover"
             />
           </div>
