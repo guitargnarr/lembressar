@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { useLang } from '../i18n/LanguageContext'
 
 const GALLERY_ITEMS = [
@@ -78,9 +79,9 @@ export default function Gallery() {
         </div>
 
         <div className="text-center mt-12 fade-in">
-          <a href="#contact" className="btn-outline border-cream-300 text-cream-300 hover:bg-cream-300 hover:text-navy-800">
+          <Link to="/paintings" className="btn-outline border-cream-300 text-cream-300 hover:bg-cream-300 hover:text-navy-800">
             {t.gallery.seeMore}
-          </a>
+          </Link>
         </div>
       </div>
     </section>

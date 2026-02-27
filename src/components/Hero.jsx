@@ -25,9 +25,9 @@ export default function Hero() {
         >
           <source src="/images/hero-video.mp4" type="video/mp4" />
         </video>
-        {/* Multi-layer overlay for depth */}
-        <div className="absolute inset-0 bg-gradient-to-b from-navy-900/70 via-navy-900/40 to-navy-900/80" />
-        <div className="absolute inset-0 bg-gradient-to-r from-navy-900/30 via-transparent to-navy-900/30" />
+        {/* Multi-layer overlay for depth — 20% opacity per Pip */}
+        <div className="absolute inset-0 bg-gradient-to-b from-navy-900/30 via-navy-900/20 to-navy-900/40" />
+        <div className="absolute inset-0 bg-gradient-to-r from-navy-900/15 via-transparent to-navy-900/15" />
         {/* Film grain texture */}
         <div className="absolute inset-0 hero-grain opacity-[0.03]" />
       </div>
