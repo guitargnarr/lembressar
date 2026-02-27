@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from 'react'
 import { useLang } from '../i18n/LanguageContext'
 
-// Warm antique cream — readable on white, elegant on red
-const CREAM = '#d4c4a0'
+// Warm gold-cream — readable on white, elegant on red
+const CREAM = '#ddd0a8'
 
 export default function Hero() {
   const { t } = useLang()
@@ -14,18 +14,29 @@ export default function Hero() {
     return () => clearTimeout(timer)
   }, [])
 
+  // Manual loop: pause 3s on last frame (red), then restart
+  const handleEnded = () => {
+    const v = videoRef.current
+    if (!v) return
+    v.pause()
+    setTimeout(() => {
+      v.currentTime = 0
+      v.play()
+    }, 3000)
+  }
+
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden bg-white">
-      {/* Video background — loops */}
+      {/* Video background — manual loop with 3s hold on red */}
       <div className="absolute inset-0">
         <video
           ref={videoRef}
           autoPlay
           muted
-          loop
           playsInline
           className={`w-full h-full object-cover transition-opacity duration-1000 ${loaded ? 'opacity-100' : 'opacity-0'}`}
           onCanPlay={() => setLoaded(true)}
+          onEnded={handleEnded}
         >
           <source src="/images/hero-video.mp4" type="video/mp4" />
         </video>
