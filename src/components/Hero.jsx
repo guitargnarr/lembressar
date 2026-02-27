@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { useLang } from '../i18n/LanguageContext'
 
 // Warm antique cream — readable on white, elegant on red
-const CREAM = '#c9b896'
+const CREAM = '#d4c4a0'
 
 export default function Hero() {
   const { t } = useLang()
