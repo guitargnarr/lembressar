@@ -1,8 +1,10 @@
 import { useState } from 'react'
 import { useLang } from '../i18n/LanguageContext'
+import { useCms } from '../lib/CmsContext'
 
 export default function Contact() {
   const { t } = useLang()
+  const cms = useCms()
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -13,7 +15,8 @@ export default function Contact() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    const mailtoLink = `mailto:contact@lembressar.com?subject=${encodeURIComponent(
+    const email = cms?.email || 'contact@lembressar.com'
+    const mailtoLink = `mailto:${email}?subject=${encodeURIComponent(
       formData.subject || t.contact.mailtoSubject
     )}&body=${encodeURIComponent(
       `${t.contact.name}: ${formData.name}\nEmail: ${formData.email}\n\n${formData.message}`

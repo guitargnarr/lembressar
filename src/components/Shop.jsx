@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useLang } from '../i18n/LanguageContext'
+import { useCms } from '../lib/CmsContext'
 
 const SHOP_IMAGES = [
   '/images/embrace.jpg',
@@ -8,16 +9,16 @@ const SHOP_IMAGES = [
   'https://images.unsplash.com/photo-1490312278390-ab64016e0aa9?w=500&q=80',
 ]
 
-const PRICES = [150, 80, 45, 35]
-
 export default function Shop() {
   const { t } = useLang()
+  const cms = useCms()
+  const prices = cms?.prices || [150, 80, 45, 35]
 
   const items = [
-    { src: SHOP_IMAGES[0], title: t.shop.item1Title, desc: t.shop.item1Desc, price: PRICES[0], link: '/paintings' },
-    { src: SHOP_IMAGES[1], title: t.shop.item2Title, desc: t.shop.item2Desc, price: PRICES[1], link: null },
-    { src: SHOP_IMAGES[2], title: t.shop.item3Title, desc: t.shop.item3Desc, price: PRICES[2], link: null },
-    { src: SHOP_IMAGES[3], title: t.shop.item4Title, desc: t.shop.item4Desc, price: PRICES[3], link: null },
+    { src: SHOP_IMAGES[0], title: t.shop.item1Title, desc: t.shop.item1Desc, price: prices[0], link: '/paintings' },
+    { src: SHOP_IMAGES[1], title: t.shop.item2Title, desc: t.shop.item2Desc, price: prices[1], link: null },
+    { src: SHOP_IMAGES[2], title: t.shop.item3Title, desc: t.shop.item3Desc, price: prices[2], link: null },
+    { src: SHOP_IMAGES[3], title: t.shop.item4Title, desc: t.shop.item4Desc, price: prices[3], link: null },
   ]
 
   return (
