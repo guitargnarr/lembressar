@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { useLang } from '../i18n/LanguageContext'
 
 // Warm gold-cream — readable on white, elegant on red
-const CREAM = '#ddd0a8'
+const CREAM = '#ffecbb'
 
 export default function Hero() {
   const { t } = useLang()
@@ -22,7 +22,7 @@ export default function Hero() {
     setTimeout(() => {
       v.currentTime = 0
       v.play()
-    }, 3000)
+    }, 4000)
   }
 
   return (
@@ -34,7 +34,7 @@ export default function Hero() {
           autoPlay
           muted
           playsInline
-          className={`w-full h-full object-cover transition-opacity duration-1000 ${loaded ? 'opacity-100' : 'opacity-0'}`}
+          className={`w-full h-full object-cover scale-150 transition-opacity duration-1000 ${loaded ? 'opacity-100' : 'opacity-0'}`}
           onCanPlay={() => setLoaded(true)}
           onEnded={handleEnded}
         >
