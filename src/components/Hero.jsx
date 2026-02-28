@@ -34,7 +34,7 @@ export default function Hero() {
           autoPlay
           muted
           playsInline
-          className={`w-full h-full object-cover scale-[1.3] transition-opacity duration-1000 ${loaded ? 'opacity-100' : 'opacity-0'}`}
+          className={`w-full h-full object-cover scale-[1.6] origin-[40%_25%] transition-opacity duration-1000 ${loaded ? 'opacity-100' : 'opacity-0'}`}
           onCanPlay={() => setLoaded(true)}
           onEnded={handleEnded}
         >
