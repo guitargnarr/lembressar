@@ -74,8 +74,8 @@ export default function Footer() {
               </a>
             </div>
             <p className="text-navy-400 text-sm">
-              57 Chemin de la M{'\u00e9'}tairie Haute<br />
-              81580 Cambounet-sur-le-Sor<br />
+              24 Rue Saint-Louis en l{'\u2019'}{'\u00ce'}le<br />
+              75004 Paris<br />
               France
             </p>
           </div>
