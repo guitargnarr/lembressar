@@ -55,7 +55,7 @@ export const translations = {
       hoursLine2: 'Dimanche : 14h \u2013 18h',
       byAppointment: 'Sur rendez-vous en dehors de ces horaires',
       region: 'R\u00e9gion',
-      regionDesc: 'Situ\u00e9e dans le Tarn, entre Toulouse et Castres, au c\u0153ur de la campagne du sud-ouest de la France. Un cadre idyllique pour d\u00e9couvrir l\u2019art et l\u2019artisanat.',
+      regionDesc: 'Situ\u00e9e sur l\u2019\u00cele Saint-Louis, au c\u0153ur de Paris. Un cadre exceptionnel pour d\u00e9couvrir l\u2019art et l\u2019artisanat.',
     },
     contact: {
       eyebrow: '\u00c9crivez-Nous',
@@ -135,7 +135,7 @@ export const translations = {
       hoursLine2: 'Sunday: 2pm \u2013 6pm',
       byAppointment: 'By appointment outside these hours',
       region: 'Region',
-      regionDesc: 'Located in the Tarn, between Toulouse and Castres, in the heart of the south-west French countryside. An idyllic setting to discover art and craftsmanship.',
+      regionDesc: 'Located on the \u00cele Saint-Louis, in the heart of Paris. An exceptional setting to discover art and craftsmanship.',
     },
     contact: {
       eyebrow: 'Write to Us',
