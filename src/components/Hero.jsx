@@ -68,14 +68,14 @@ export default function Hero() {
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a
-            href="#about"
+            href="#shop"
             className="inline-block px-8 py-3 font-sans text-sm tracking-widest-plus uppercase text-navy-800 hover:opacity-90 transition-all duration-300"
             style={{ backgroundColor: CREAM }}
           >
             {t.hero.cta1}
           </a>
           <a
-            href="#shop"
+            href="#contact"
             className="inline-block px-8 py-3 font-sans text-sm tracking-widest-plus uppercase hover:bg-white/10 transition-all duration-300"
             style={{ border: `1px solid ${CREAM}`, color: CREAM }}
           >

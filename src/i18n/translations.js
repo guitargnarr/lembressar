@@ -14,8 +14,8 @@ export const translations = {
     hero: {
       eyebrow: 'Galerie d\u2019Art et d\u2019Artisanat',
       tagline: 'Art, artisanat et aide \u00e0 la cr\u00e9ation artistique',
-      cta1: 'D\u00e9couvrir',
-      cta2: 'Boutique',
+      cta1: 'Boutique',
+      cta2: 'Contact',
       scroll: 'D\u00e9filer',
     },
     about: {
@@ -94,8 +94,8 @@ export const translations = {
     hero: {
       eyebrow: 'Art Gallery & Artisan Crafts',
       tagline: 'Art, craftsmanship, and artistic creation assistance',
-      cta1: 'Discover',
-      cta2: 'Shop',
+      cta1: 'Shop',
+      cta2: 'Contact',
       scroll: 'Scroll',
     },
     about: {
