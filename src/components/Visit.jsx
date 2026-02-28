@@ -1,7 +1,9 @@
 import { useLang } from '../i18n/LanguageContext'
+import { useCms } from '../lib/CmsContext'
 
 export default function Visit() {
   const { t } = useLang()
+  const cms = useCms()
 
   return (
     <section id="visit" className="py-24 md:py-32 bg-cream-200">

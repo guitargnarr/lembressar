@@ -1,8 +1,10 @@
 import { useLocation } from 'react-router-dom'
 import { useLang } from '../i18n/LanguageContext'
+import { useCms } from '../lib/CmsContext'
 
 export default function Footer() {
   const { t } = useLang()
+  const cms = useCms()
   const location = useLocation()
   const isHome = location.pathname === '/'
 
@@ -51,7 +53,7 @@ export default function Footer() {
             </h4>
             <div className="flex gap-4 mb-6">
               <a
-                href="https://facebook.com"
+                href={cms?.social?.facebook || 'https://facebook.com'}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-navy-400 hover:text-cream-200 transition-colors"
@@ -62,7 +64,7 @@ export default function Footer() {
                 </svg>
               </a>
               <a
-                href="https://instagram.com"
+                href={cms?.social?.instagram || 'https://instagram.com'}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-navy-400 hover:text-cream-200 transition-colors"
