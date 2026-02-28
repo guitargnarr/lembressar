@@ -35,7 +35,7 @@ export default function Visit() {
               <div>
                 <h3 className="font-serif text-lg text-navy-700 mb-2">{t.visit.address}</h3>
                 <p className="text-navy-500 leading-relaxed">
-                  24 Rue Saint-Louis en l{'\u2019'}\u00cele<br />
+                  24 Rue Saint-Louis en l{'\u2019\u00cele'}<br />
                   75004 Paris<br />
                   France
                 </p>
