@@ -1,12 +1,15 @@
 import { useParams, Link, Navigate } from 'react-router-dom'
 import { useLang } from '../i18n/LanguageContext'
-import { paintings } from '../data/paintings'
+import { useCms } from '../lib/CmsContext'
+import { paintings as staticPaintings } from '../data/paintings'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 
 export default function PaintingDetail() {
   const { slug } = useParams()
   const { lang, t } = useLang()
+  const cms = useCms()
+  const paintings = cms?.paintings?.length > 0 ? cms.paintings : staticPaintings
   const painting = paintings.find((p) => p.slug === slug)
 
   if (!painting) return <Navigate to="/paintings" replace />

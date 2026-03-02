@@ -1,7 +1,9 @@
 import { useLang } from '../i18n/LanguageContext'
+import { useCms } from '../lib/CmsContext'
 
 export default function About() {
   const { t } = useLang()
+  const cms = useCms()
 
   const values = [
     { title: t.about.value1Title, desc: t.about.value1Desc },
@@ -30,7 +32,7 @@ export default function About() {
 
           <div className="fade-in img-zoom rounded-sm overflow-hidden">
             <img
-              src="/images/embrace.jpg"
+              src={cms?.about_image || '/images/embrace.jpg'}
               alt="L\u2019Embrasser"
               className="w-full h-[500px] object-cover"
             />

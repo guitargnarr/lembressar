@@ -1,11 +1,14 @@
 import { Link } from 'react-router-dom'
 import { useLang } from '../i18n/LanguageContext'
-import { paintings } from '../data/paintings'
+import { useCms } from '../lib/CmsContext'
+import { paintings as staticPaintings } from '../data/paintings'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 
 export default function PaintingsPage() {
   const { lang, t } = useLang()
+  const cms = useCms()
+  const paintings = cms?.paintings?.length > 0 ? cms.paintings : staticPaintings
 
   return (
     <div className="min-h-screen bg-cream-50">

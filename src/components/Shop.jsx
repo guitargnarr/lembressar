@@ -13,12 +13,13 @@ export default function Shop() {
   const { t } = useLang()
   const cms = useCms()
   const prices = cms?.prices || [150, 80, 45, 35]
+  const images = SHOP_IMAGES.map((fallback, i) => cms?.shopImages?.[i] || fallback)
 
   const items = [
-    { src: SHOP_IMAGES[0], title: t.shop.item1Title, desc: t.shop.item1Desc, price: prices[0], link: '/paintings' },
-    { src: SHOP_IMAGES[1], title: t.shop.item2Title, desc: t.shop.item2Desc, price: prices[1], link: null },
-    { src: SHOP_IMAGES[2], title: t.shop.item3Title, desc: t.shop.item3Desc, price: prices[2], link: null },
-    { src: SHOP_IMAGES[3], title: t.shop.item4Title, desc: t.shop.item4Desc, price: prices[3], link: null },
+    { src: images[0], title: t.shop.item1Title, desc: t.shop.item1Desc, price: prices[0], link: '/paintings' },
+    { src: images[1], title: t.shop.item2Title, desc: t.shop.item2Desc, price: prices[1], link: null },
+    { src: images[2], title: t.shop.item3Title, desc: t.shop.item3Desc, price: prices[2], link: null },
+    { src: images[3], title: t.shop.item4Title, desc: t.shop.item4Desc, price: prices[3], link: null },
   ]
 
   return (

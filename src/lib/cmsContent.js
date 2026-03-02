@@ -30,6 +30,8 @@ const DEFAULTS = {
   promotions: [],
   testimonials: [],
   gallery: [],
+  about_image: '',
+  paintings: [],
 }
 
 export function useLembrasserContent() {
@@ -37,6 +39,9 @@ export function useLembrasserContent() {
 
   // Extract prices from CMS services (keyed by index)
   const prices = content.services.map(s => parseInt(s.price, 10) || 0)
+
+  // Extract service images from CMS
+  const shopImages = content.services.map(s => s.image || '')
 
   return {
     loading,
@@ -47,5 +52,8 @@ export function useLembrasserContent() {
     hours: content.hours,
     prices,
     gallery: content.gallery,
+    shopImages,
+    about_image: content.about_image,
+    paintings: content.paintings,
   }
 }
