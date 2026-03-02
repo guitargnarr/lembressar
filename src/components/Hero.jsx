@@ -4,8 +4,6 @@ import { useLang } from '../i18n/LanguageContext'
 // Warm gold-cream — readable on white, elegant on red
 const CREAM = '#ffecbb'
 
-const isMobile = () => window.innerWidth < 768
-
 export default function Hero() {
   const { t } = useLang()
   const videoRef = useRef(null)
@@ -40,8 +38,7 @@ export default function Hero() {
           onCanPlay={() => setLoaded(true)}
           onEnded={handleEnded}
         >
-          <source src="/images/hero-video.webm" type="video/webm" />
-          <source src={isMobile() ? '/images/hero-video-mobile.mp4' : '/images/hero-video.mp4'} type="video/mp4" />
+          <source src="/images/hero-video.mp4" type="video/mp4" />
         </video>
       </div>
 
