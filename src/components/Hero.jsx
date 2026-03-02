@@ -1,12 +1,12 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useLang } from '../i18n/LanguageContext'
 
 // Warm gold-cream — readable on white, elegant on red
 const CREAM = '#ffecbb'
-const VIMEO_ID = '1169192725'
 
 export default function Hero() {
   const { t } = useLang()
+  const videoRef = useRef(null)
   const [loaded, setLoaded] = useState(false)
 
   useEffect(() => {
@@ -14,18 +14,32 @@ export default function Hero() {
     return () => clearTimeout(timer)
   }, [])
 
+  // Manual loop: pause 3s on last frame (red), then restart
+  const handleEnded = () => {
+    const v = videoRef.current
+    if (!v) return
+    v.pause()
+    setTimeout(() => {
+      v.currentTime = 0
+      v.play()
+    }, 4000)
+  }
+
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden bg-white">
-      {/* Vimeo background — adaptive bitrate, CDN delivery */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <iframe
-          src={`https://player.vimeo.com/video/${VIMEO_ID}?autoplay=1&loop=1&muted=1&controls=0&title=0&byline=0&portrait=0&dnt=1`}
-          className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-opacity duration-1000 ${loaded ? 'opacity-100' : 'opacity-0'}`}
-          style={{ border: 'none', width: '177.78vh', height: '100vh', minWidth: '100%', minHeight: '56.25vw' }}
-          allow="autoplay"
-          title="Hero background"
-          onLoad={() => setLoaded(true)}
-        />
+      {/* Video background — manual loop with 3s hold on red */}
+      <div className="absolute inset-0">
+        <video
+          ref={videoRef}
+          autoPlay
+          muted
+          playsInline
+          className={`w-full h-full object-cover scale-[1.3] transition-opacity duration-1000 ${loaded ? 'opacity-100' : 'opacity-0'}`}
+          onCanPlay={() => setLoaded(true)}
+          onEnded={handleEnded}
+        >
+          <source src="/images/hero-video.mp4" type="video/mp4" />
+        </video>
       </div>
 
       {/* All text visible immediately in warm cream */}
