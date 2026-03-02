@@ -13,7 +13,7 @@ export const translations = {
     },
     hero: {
       eyebrow: 'Galerie d\u2019Art et d\u2019Artisanat',
-      tagline: 'Art, artisanat et aide \u00e0 la cr\u00e9ation artistique',
+      tagline: 'Art, artisanat et aide \u00e0 la cr\u00e9ation artistique.',
       cta1: 'D\u00e9couvrir',
       cta2: 'Nous Contacter',
       scroll: 'D\u00e9filer',
