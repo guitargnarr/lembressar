@@ -37,17 +37,32 @@ export default function Visit() {
               <div>
                 <h3 className="font-serif text-lg text-navy-700 mb-2">{t.visit.address}</h3>
                 <p className="text-navy-500 leading-relaxed">
-                  24 Rue Saint-Louis en l{'\u2019\u00cele'}<br />
-                  75004 Paris<br />
-                  France
+                  {(cms?.address || "24 Rue Saint-Louis en l\u2019\u00cele, 75004 Paris, France")
+                    .split(',')
+                    .map((part, i, arr) => (
+                      <span key={i}>
+                        {part.trim()}
+                        {i < arr.length - 1 && <br />}
+                      </span>
+                    ))}
                 </p>
               </div>
 
               <div>
                 <h3 className="font-serif text-lg text-navy-700 mb-2">{t.visit.hours}</h3>
                 <div className="text-navy-500 text-sm space-y-1">
-                  <p>{t.visit.hoursLine1}</p>
-                  <p>{t.visit.hoursLine2}</p>
+                  {cms?.hours ? (
+                    ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
+                      .filter(day => cms.hours[day] && cms.hours[day].toLowerCase() !== 'closed')
+                      .map(day => (
+                        <p key={day} className="capitalize">{day}: {cms.hours[day]}</p>
+                      ))
+                  ) : (
+                    <>
+                      <p>{t.visit.hoursLine1}</p>
+                      <p>{t.visit.hoursLine2}</p>
+                    </>
+                  )}
                   <p className="italic text-navy-400">{t.visit.byAppointment}</p>
                 </div>
               </div>

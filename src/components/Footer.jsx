@@ -76,9 +76,14 @@ export default function Footer() {
               </a>
             </div>
             <p className="text-navy-400 text-sm">
-              24 Rue Saint-Louis en l{'\u2019'}{'\u00ce'}le<br />
-              75004 Paris<br />
-              France
+              {(cms?.address || "24 Rue Saint-Louis en l\u2019\u00cele, 75004 Paris, France")
+                .split(',')
+                .map((part, i, arr) => (
+                  <span key={i}>
+                    {part.trim()}
+                    {i < arr.length - 1 && <br />}
+                  </span>
+                ))}
             </p>
           </div>
         </div>

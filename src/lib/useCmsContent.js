@@ -32,7 +32,7 @@ function deepMerge(defaults, overrides) {
   for (const key of Object.keys(overrides)) {
     const val = overrides[key]
     if (val === null || val === undefined) continue
-    if (Array.isArray(val) && val.length > 0) {
+    if (Array.isArray(val)) {
       result[key] = val
     } else if (typeof val === 'object' && !Array.isArray(val)) {
       const defaultVal = result[key]
