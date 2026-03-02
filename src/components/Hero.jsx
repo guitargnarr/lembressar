@@ -1,12 +1,12 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useLang } from '../i18n/LanguageContext'
 
 // Warm gold-cream — readable on white, elegant on red
 const CREAM = '#ffecbb'
+const VIMEO_ID = '1169192725'
 
 export default function Hero() {
   const { t } = useLang()
-  const videoRef = useRef(null)
   const [loaded, setLoaded] = useState(false)
 
   useEffect(() => {
@@ -14,32 +14,18 @@ export default function Hero() {
     return () => clearTimeout(timer)
   }, [])
 
-  // Manual loop: pause 3s on last frame (red), then restart
-  const handleEnded = () => {
-    const v = videoRef.current
-    if (!v) return
-    v.pause()
-    setTimeout(() => {
-      v.currentTime = 0
-      v.play()
-    }, 4000)
-  }
-
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden bg-white">
-      {/* Video background — manual loop with 3s hold on red */}
-      <div className="absolute inset-0">
-        <video
-          ref={videoRef}
-          autoPlay
-          muted
-          playsInline
-          className={`w-full h-full object-cover scale-[1.3] transition-opacity duration-1000 ${loaded ? 'opacity-100' : 'opacity-0'}`}
-          onCanPlay={() => setLoaded(true)}
-          onEnded={handleEnded}
-        >
-          <source src="/images/hero-video.mp4" type="video/mp4" />
-        </video>
+      {/* Vimeo background — adaptive bitrate, CDN delivery */}
+      <div className="absolute inset-0 pointer-events-none">
+        <iframe
+          src={`https://player.vimeo.com/video/${VIMEO_ID}?background=1&autoplay=1&loop=1&muted=1&quality=auto`}
+          className={`w-[120%] h-[120%] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-opacity duration-1000 ${loaded ? 'opacity-100' : 'opacity-0'}`}
+          style={{ border: 'none', scale: '1.3' }}
+          allow="autoplay; fullscreen"
+          title="Hero background"
+          onLoad={() => setLoaded(true)}
+        />
       </div>
 
       {/* All text visible immediately in warm cream */}
