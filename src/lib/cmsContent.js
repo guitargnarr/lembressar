@@ -29,6 +29,7 @@ const DEFAULTS = {
   },
   promotions: [],
   testimonials: [],
+  gallery: [],
 }
 
 export function useLembrasserContent() {
@@ -45,5 +46,6 @@ export function useLembrasserContent() {
     social: content.social,
     hours: content.hours,
     prices,
+    gallery: content.gallery,
   }
 }
