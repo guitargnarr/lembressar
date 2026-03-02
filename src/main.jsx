@@ -3,6 +3,8 @@ import { createRoot } from 'react-dom/client'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { LanguageProvider } from './i18n/LanguageContext'
 import { CmsProvider } from './lib/CmsContext'
+import { Analytics } from '@vercel/analytics/react'
+import { SpeedInsights } from '@vercel/speed-insights/react'
 import './index.css'
 import App from './App.jsx'
 import PaintingsPage from './pages/PaintingsPage'
@@ -21,5 +23,7 @@ createRoot(document.getElementById('root')).render(
       </CmsProvider>
       </LanguageProvider>
     </BrowserRouter>
+    <Analytics />
+    <SpeedInsights />
   </StrictMode>,
 )

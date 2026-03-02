@@ -1,6 +1,6 @@
 import { useCmsContent } from './useCmsContent'
 
-const SITE_ID = 'lembressar'
+const SITE_ID = 'lembrasser'
 
 const DEFAULTS = {
   business_name: "L\u2019Embrasser",
