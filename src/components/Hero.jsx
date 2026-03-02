@@ -17,12 +17,12 @@ export default function Hero() {
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden bg-white">
       {/* Vimeo background — adaptive bitrate, CDN delivery */}
-      <div className="absolute inset-0 pointer-events-none">
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <iframe
-          src={`https://player.vimeo.com/video/${VIMEO_ID}?background=1&autoplay=1&loop=1&muted=1&quality=auto`}
-          className={`w-[120%] h-[120%] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-opacity duration-1000 ${loaded ? 'opacity-100' : 'opacity-0'}`}
-          style={{ border: 'none', scale: '1.3' }}
-          allow="autoplay; fullscreen"
+          src={`https://player.vimeo.com/video/${VIMEO_ID}?autoplay=1&loop=1&muted=1&controls=0&title=0&byline=0&portrait=0&dnt=1`}
+          className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-opacity duration-1000 ${loaded ? 'opacity-100' : 'opacity-0'}`}
+          style={{ border: 'none', width: '177.78vh', height: '100vh', minWidth: '100%', minHeight: '56.25vw' }}
+          allow="autoplay"
           title="Hero background"
           onLoad={() => setLoaded(true)}
         />
