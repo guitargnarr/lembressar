@@ -46,6 +46,11 @@ export const translations = {
       unique: 'Chaque pi\u00e8ce est unique. Contactez-nous pour en savoir plus.',
       contactUs: 'Nous Contacter',
     },
+    gallery: {
+      eyebrow: 'Notre Collection',
+      heading: 'Galerie d\u2019Exposition',
+      seeMore: 'Voir toutes les \u0153uvres',
+    },
     visit: {
       eyebrow: 'Nous Trouver',
       heading: 'Rendez-nous visite',
@@ -125,6 +130,11 @@ export const translations = {
       fromPrice: 'From',
       unique: 'Each piece is unique. Contact us to learn more.',
       contactUs: 'Contact Us',
+    },
+    gallery: {
+      eyebrow: 'Our Collection',
+      heading: 'Gallery Exhibition',
+      seeMore: 'View all works',
     },
     visit: {
       eyebrow: 'Find Us',

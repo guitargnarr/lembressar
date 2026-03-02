@@ -14,13 +14,13 @@ createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
       <LanguageProvider>
-      <CmsProvider>
-        <Routes>
-          <Route path="/" element={<App />} />
-          <Route path="/paintings" element={<PaintingsPage />} />
-          <Route path="/paintings/:slug" element={<PaintingDetail />} />
-        </Routes>
-      </CmsProvider>
+        <CmsProvider>
+          <Routes>
+            <Route path="/" element={<App />} />
+            <Route path="/paintings" element={<PaintingsPage />} />
+            <Route path="/paintings/:slug" element={<PaintingDetail />} />
+          </Routes>
+        </CmsProvider>
       </LanguageProvider>
     </BrowserRouter>
     <Analytics />
