@@ -21,7 +21,7 @@ export default function Gallery() {
   const { t } = useLang()
   const cms = useCms()
 
-  const items = cms?.gallery?.length > 0 ? cms.gallery : DEFAULT_GALLERY
+  const items = [...DEFAULT_GALLERY, ...(cms?.gallery || [])]
 
   return (
     <section id="gallery" className="py-24 md:py-32 bg-navy-800">
