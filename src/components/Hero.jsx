@@ -40,6 +40,7 @@ export default function Hero() {
           onCanPlay={() => setLoaded(true)}
           onEnded={handleEnded}
         >
+          {!IS_MOBILE && <source src="/images/hero-video-av1.mp4" type='video/mp4; codecs="av01.0.08M.08"' />}
           {!IS_MOBILE && <source src="/images/hero-video.webm" type="video/webm" />}
           <source src={MP4_SRC} type="video/mp4" />
         </video>
